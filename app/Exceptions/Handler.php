@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
+use Anik\Form\ValidationException as FormValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -49,6 +51,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+        if ($exception instanceof FormValidationException) {
+            return response()->json([
+                'error' => $exception->getResponse(),
+            ], Response::HTTP_BAD_REQUEST);
+        }else{
+            return parent::render($request, $exception);
+        }
     }
 }
