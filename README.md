@@ -10,6 +10,7 @@ Lumen
 # Kullanım
 * Dosya Sunucuya Yüklendikten sonra yükleyen kişiye "Dosyanız Yüklendi" , Dosya Alıcısına ise "Size Dosya Gönderildi" Adında Mail Gönderilmektedir.
 * Maillerin kontrolü mailtrap üzerinden üzerinden yapılabilir, Giden tüm mailler buraya düşmektedir.
+* İzin Verilen Dosya Uzantıları: zip,rar,png,jpg,mp3,waw,flac
 
 ```
 Mailtrap.io Bilgileri
